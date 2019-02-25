@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 class RegistrationType extends AbstractType
 {
@@ -14,10 +15,25 @@ class RegistrationType extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('username')
-            ->add('password',PasswordType::class)
-            ->add('confirm_password',PasswordType::class)
-        ;
+            ->add('username');
+            if (in_array('registration', $options['validation_groups'])) {
+                $builder
+                    ->add('plainPassword', RepeatedType::class, array(
+                        'type' => PasswordType::class,
+                        'first_options'  => array('label' => 'Mot de passe'),
+                        'second_options' => array('label' => 'Confirmer le mot de passe'),
+                    ))
+                    ;
+            } else {
+                $builder
+                    ->add('plainPassword', RepeatedType::class, array(
+                        'required' => false,
+                        'type' => PasswordType::class,
+                        'first_options'  => array('label' => 'Mot de passe'),
+                        'second_options' => array('label' => 'Confirmer le mot de passe'),
+                    ))
+                    ;
+            }
     }
 
     public function configureOptions(OptionsResolver $resolver)

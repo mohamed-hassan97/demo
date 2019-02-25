@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<h1>Welcome, {{ app.user.username }}</h1>
+
+<h1>Gerer Enfants</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+
+      <td>Mark</td>
+      <td>4</td>
+    </tr>
+    <tr>
+
+      <td>Jacob</td>
+      <td>8</td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+{% endblock %}

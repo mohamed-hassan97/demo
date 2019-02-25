@@ -23,12 +23,14 @@ class SecurityController extends AbstractController
 
     	$user = new User();
 
-    	$form = $this->createForm(RegistrationType::class,$user);
+    	$form = $this->createForm(RegistrationType::class, $user,[
+            'validation_groups' => array('User', 'registration'),
+         ]);   
 
     	$form->handleRequest($request);
 
     	if ($form->isSubmitted() && $form->isValid()) {
-            $hash = $encoder->encodePassword($user, $user->getPassword());
+            $hash = $encoder->encodePassword($user, $user->getPlainPassword());
 
             $user->setPassword($hash);
 
@@ -46,11 +48,22 @@ class SecurityController extends AbstractController
         ]);
     }
 
+    /**
+    * @Route("/profile", name="profile")
+    */
+    public function profile(){
+
+        $user = $this->getUser();
+
+
+        return $this->render('security/profile.html.twig');
+    }
+
 
     /**
     * @Route("/connexion", name="security_login")
     */
-    public function login(AuthenticationUtils $authenticationUtils): Response{
+    public function login(AuthenticationUtils $authenticationUtils ): Response{
 
         $error = $authenticationUtils->getLastAuthenticationError();
         // last username entered by the user
