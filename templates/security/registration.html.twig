@@ -1,15 +1,96 @@
-{% extends 'base.html.twig' %} 
+<!DOCTYPE html>
+<html lang="en">
 
-{% block body %}
-	<h1>Bonjour a tous</h1>
+<head>
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+	<link href="fontawesome/css/all.css" rel="stylesheet">
+	<style>
+	.bgr{
+		height: 300px;
+		background-image: linear-gradient(#ff9d2f, #ff6126);
+  		border-bottom-left-radius: 50% 20%;
+  		border-bottom-right-radius: 50% 20%;
+	}
+	
+	button[class*="social"]:hover{
+		background-color:#ffffff;
+		border:1px solid gray;
+		}
+	button[class$="fb"]{
+		background-color:#4267b2;
+		color:white;
+		
+	}
+	button[class$="google"]{
+		background-color:#ed412d;
+		color:white;
+		
+	}
 
-	{{ form_start(form)}}
+	</style>
+</head>
 
-	{{ form_row(form.username,{'label':'Nom d\'utilisateur','attr':{'placeholder':'Nom d\'utilisateur'}})}}
-	{{ form_row(form.email , {'label':'Adresse Email','attr':{'placeholder':'Votre Email'}})}}
-	{{ form_row(form.password , {'label':'Mot de passe','attr':{'placeholder':'mot de passe'}})}}
-	{{ form_row(form.confirm_password , {'label':'Confirmation du mot de passe','attr':{'placeholder':'Confirmation du mot de passe'}})}}
+<body>
+<div class="bgr">
+	<div class="container">
+		<div class="row justify-content-center align-items-center" style="height:100vh">
+			<!-- col.// -->
+			<div class="card col-md-4" style="border-top:none";>
+				<article class="card-body">
+					<a class="float-right btn btn-outline-primary" href="{{path('security_login')}}">Connexion</a>
+					<h4 class="card-title mb-4 mt-1">Inscrivez-vous</h4>
+					<div class="text-center my-4">
+						
+							<button class="btn social-google">Google</button>
+						
+						
+							<button class="btn social-fb">Facebook</button>
+						
+					</div>
 
-	<button type="submit" class="btn btn-success">Inscription !</button>
-	{{form_end(form)}}
-{% endblock %}
+					{{ form_start(form)}}
+						<div class="form-group">
+						{{form_row(form.username,{'label':'Nom d\'utilisateur','attr':{'placeholder':'Nom'}})}}
+						</div>
+						<div class="form-group">
+							<!--<input class="form-control" name="" placeholder="Email ou login" type="email"> -->
+							{{form_row(form.email,{'label':'Email ou login','attr':{'placeholder':'Email ou login'}})}}
+						</div>
+						<!-- form-group// -->
+						<div class="form-group">
+							{{form_row(form.password,{'label':'Mot de passe','attr':{'placeholder':'*****'}})}}
+						</div>
+						<div class="form-group">
+							{{form_row(form.confirm_password,{'label':'Confirmatio du mot de passe','attr':{'placeholder':'*****'}})}}
+						</div>
+					
+						<!-- form-group// -->
+						<div class="form-group text-center ">
+							<button class="btn btn-outline-primary btn-block" type="submit">
+								Inscription
+							</button>
+						</div>
+					{{form_end(form)}}	
+						<!-- form-group// -->
+						<!-- .row// -->
+					
+				</article>
+			</div>
+		</div>
+		<!-- row.// -->
+	</div>
+	</div>
+	<!--container end.//-->
+	<script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script crossorigin="anonymous" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script crossorigin="anonymous" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+
+</html>
