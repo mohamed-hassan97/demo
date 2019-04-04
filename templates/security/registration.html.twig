@@ -5,78 +5,87 @@
 	<title>Bootstrap Example</title>
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1" name="viewport">
-	<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+	<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
 	<link href="fontawesome/css/all.css" rel="stylesheet">
 	<style>
-	.bgr{
-		height: 300px;
-		background-image: linear-gradient(#ff9d2f, #ff6126);
-  		border-bottom-left-radius: 50% 20%;
-  		border-bottom-right-radius: 50% 20%;
-	}
-	
-	button[class*="social"]:hover{
-		background-color:#ffffff;
-		border:1px solid gray;
+		.bgr {
+			height: 300px;
+			background-image: linear-gradient(#ff9d2f, #ff6126);
+			border-bottom-left-radius: 50% 20%;
+			border-bottom-right-radius: 50% 20%;
 		}
-	button[class$="fb"]{
-		background-color:#4267b2;
-		color:white;
-		
-	}
-	button[class$="google"]{
-		background-color:#ed412d;
-		color:white;
-		
-	}
 
+		button[class*="social"]:hover {
+			background-color: #ffffff;
+			border: 1px solid gray;
+		}
+
+		button[class$="fb"] {
+			background-color: #4267b2;
+			color: white;
+
+		}
+
+		button[class$="google"] {
+			background-color: #ed412d;
+			color: white;
+
+		}
 	</style>
 </head>
 
 <body>
-<div class="bgr">
-	<div class="container">
-		<div class="row justify-content-center align-items-center" style="height:100vh">
-			<!-- col.// -->
-			<div class="card col-md-4" style="border-top:none";>
-				<article class="card-body">
-					<a class="float-right btn btn-outline-primary" href="{{path('security_login')}}">Connexion</a>
-					<h4 class="card-title mb-4 mt-1">Inscrivez-vous</h4>
-					<div class="text-center my-4">
-						
-							<button class="btn social-google">Google</button>
-						
-						
-							<button class="btn social-fb">Facebook</button>
-						
-					</div>
+	<div class="bgr">
+		<div class="container">
+			<div class="row justify-content-center align-items-center" style="height:100vh">
+				<!-- col.// -->
+				<div class="card col-md-4" style="border-top:none" ;>
+					<article class="card-body">
+						<a class="float-right btn btn-outline-primary" href="{{path('security_login')}}">Connexion</a>
+						<h4 class="card-title mb-4 mt-1">Inscrivez-vous</h4>
+						<div class="text-center my-4">
 
-					{{ form_start(form)}}
-						<div class="form-group">
-						{{form_row(form.username,{'label':'Nom d\'utilisateur','attr':{'placeholder':'Nom'}})}}
+							<button class="btn social-google">Google</button>
+
+
+							<button class="btn social-fb">Facebook</button>
+
 						</div>
-						<div class="form-group">
-							<!--<input class="form-control" name="" placeholder="Email ou login" type="email"> -->
-							{{form_row(form.email,{'label':'Email ou login','attr':{'placeholder':'Email ou login'}})}}
-						</div>
-						<!-- form-group// -->
-						<div class="form-group">
-							{{form_row(form.plainPassword.first,{'label':'Mot de passe','attr':{'placeholder':'*****'}})}}
-						</div>
-						<div class="form-group">
-							{{form_row(form.plainPassword.second,{'label':'Confirmatio du mot de passe','attr':{'placeholder':'*****'}})}}
-						</div>
-					
-						<!-- form-group// -->
-						<div class="form-group text-center ">
-							<button class="btn btn-outline-primary btn-block" type="submit">
-								Inscription
-							</button>
-						</div>
-					{{form_end(form)}}	
-						<!-- form-group// -->
-						<!-- .row// -->
-					
+						<form method="POST">
+							<div class="form-group">
+								<label for="inputusername">Nom d'utilisateur</label>
+								<input autofocus class="form-control" id="inputusername" name="username"
+									placeholder="username" required type="text">
+							</div>
+							<div class="form-group">
+								<label for="inputEmail">Email ou login</label>
+								<input autofocus class="form-control" id="inputEmail" name="email" placeholder="Email"
+									required type="email">
+							</div>
+							<div class="form-group">
+								<label for="inputPassword">Mot de passe</label>
+								<input class="form-control" id="inputPassword" name="password" placeholder="******"
+									required type="password">
+							</div>
+							<div class="form-group">
+								<label for="exampleFormControlSelect1">Votre Role:</label>
+								<select class="form-control" id="exampleFormControlSelect1" name="role">
+									<option>admin</option>
+									<option>user</option>
+								</select>
+							</div>
+							<div class="form-group text-center ">
+								<button class="btn btn-outline-primary btn-block" type="submit">
+									Inscription
+								</button>
+							</div>
+				</div>
+
+				</form>
+				<!-- form-group// -->
+				<!-- .row// -->
+
 				</article>
 			</div>
 		</div>

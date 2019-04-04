@@ -15,6 +15,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
+    
     /**
      * @Route("/inscription", name="security_registration")
      */
@@ -48,16 +49,7 @@ class SecurityController extends AbstractController
         ]);
     }
 
-    /**
-    * @Route("/profile", name="profile")
-    */
-    public function profile(){
-
-        $user = $this->getUser();
-
-
-        return $this->render('security/profile.html.twig');
-    }
+    
 
 
     /**
