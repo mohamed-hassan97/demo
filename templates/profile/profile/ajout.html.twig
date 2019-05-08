@@ -1,0 +1,65 @@
+{% extends "profile/profilebase.html.twig" %}
+
+{% block head %}
+    {{ parent() }}
+    <style>
+
+        .bgr {
+            height: 300px;
+            background-image: linear-gradient(#ff9d2f, #ff6126);
+            border-bottom-left-radius: 50% 20%;
+            border-bottom-right-radius: 50% 20%;
+        }
+
+        button[class*="social"]:hover {
+            background-color: #ffffff;
+            border: 1px solid gray;
+        }
+
+        button[class$="fb"] {
+            background-color: #4267b2;
+            color: white;
+
+        }
+
+        button[class$="google"] {
+            background-color: #ed412d;
+            color: white;
+
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+
+    <div
+        class="row justify-content-center align-items-center" style="height:100px">
+        <!-- col.// -->
+        <div ; class="card col-md-4" style="border-top:none">
+            <article class="card-body">
+
+                <h4 class="card-title mb-4 mt-1">Ajouter un Enfant</h4>
+
+                <form method="POST">
+
+                    <div class="form-group">
+                        <label for="inputEmail">Entrer l'identifiant de l'enfant</label>
+                        <input autofocus class="form-control" id="inputEmail" name="uidenfant" placeholder="IDENTIFIANT" required type="text">
+                    </div>
+
+
+                    <div class="form-group text-center ">
+                        <button class="btn btn-outline-primary btn-block" type="submit">
+                            Ajouter
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+            <!-- form-group// -->
+            <!-- .row// -->
+
+        </article>
+    </div>
+
+</div>{% endblock %}

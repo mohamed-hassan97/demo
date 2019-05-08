@@ -42,42 +42,16 @@
                     <div ; class="card col-md-4" style="border-top:none">
                         <article class="card-body">
                             <a class="float-right btn btn-outline-primary" href="{{path('security_login')}}">Connexion</a>
-                            <h4 class="card-title mb-4 mt-1">Inscrivez-vous</h4>
-
+                            <h4 class="card-title mb-4 mt-1">Connectez vous</h4>
                             <form method="POST">
+
                                 <div class="form-group">
-                                    <label for="inputusername">Nom d'utilisateur</label>
-                                    <input autofocus class="form-control" id="inputusername" name="username" placeholder="username" required type="text">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputEmail">Email ou login</label>
+                                    <label for="inputEmail">Email</label>
                                     <input autofocus class="form-control" id="inputEmail" name="email" placeholder="Email" required type="email">
                                 </div>
-                                <div class="form-group">
-                                    <label for="inputNumber">Phone</label>
-                                    <input autofocus class="form-control" id="inputNumber" name="phone" placeholder="telephone" required type="tel">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPassword">Mot de passe</label>
-                                    <input class="form-control" id="inputPassword" name="password" placeholder="******" required type="password">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Sexe:</label>
-                                    <select class="form-control" id="exampleFormControlSelect1" name="sexe">
-                                        <option value="masculin">masculin</option>
-                                        <option value="feminin">feminin</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Votre Role:</label>
-                                    <select class="form-control" id="exampleFormControlSelect1" name="role">
-                                        <option value="parent">parent</option>
-                                        <option value="enfant">enfant</option>
-                                    </select>
-                                </div>
                                 <div class="form-group text-center ">
-                                    <button class="btn btn-outline-primary btn-block" type="submit">
-                                        Inscription
+                                    <button class=" btn btn-outline-primary btn-block" type="submit">
+                                        Envoyer
                                     </button>
                                 </div>
                             </div>
@@ -99,5 +73,7 @@
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
     <!-- slimscroll js -->
     <script src="/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-
+    <script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body></html>

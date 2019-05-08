@@ -1,0 +1,90 @@
+{% extends "profile/profilebase.html.twig" %}
+
+{% block title %}Les Enfant
+{% endblock %}
+{% block head %}
+    {{ parent() }}
+    <style type="text/css"></style>
+{% endblock %}
+
+{% block affiche %}Tout les enfants
+{% endblock %}
+
+{% block body %}
+    <div class="row" style="justify-content:space-around;">
+        <div class="card-deck">
+            {% for key,child in children %}
+                <div class="card">
+                    {% if child.sexe == 'masculin' %}
+                        <img alt="Card image cap" class="card-img-top img-fluid rounded-circle" src="/image/boy.svg">
+                    {% else %}
+                        <img alt="Card image cap" class="card-img-top img-fluid rounded-circle" src="/image/girl.svg" style="margin:0 auto;">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="text-center">{{ child.displayName }}</h5>
+                    </div>
+
+                    <div class="card-footer">
+                        <div aria-label="Basic example" class="btn-group" role="group">
+                            <a class="btn btn-info btn-circle" href="{{path('enfant_show',{id:key}) }}">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a class="btn btn-secondary btn-circle " href="">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </a>
+                            <a class="btn btn-warning btn-circle " href="{{path('enfant_edit',{id:key}) }}">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a class="btn btn-danger btn-circle " data-target="#exampleModal{{key}}" data-toggle="modal" href="#">
+                                <i class="fas fa-times"></i>
+                            </a>
+
+                        </div>
+
+
+                    </div>
+                </div>
+                <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal{{key}}" role="dialog" tabindex="-1">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Etes-vous sur de supprimer cet enfant</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">Close</button>
+                                <a class="btn btn-danger btn-circle " href="{{path('enfant_delete',{id:key}) }}">
+                                    Supprimer
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            {% endfor %}
+
+
+            <a class="card enfant " href="{{path('ajoutenfant')}}">
+                <div class="overlay"></div>
+                <div class="circle">
+
+
+                    <img alt="" src="fontawesome/svgs/solid/plus-circle.svg">
+
+                </div>
+                <p>Ajouter un Enfant</p>
+
+            </a>
+
+
+        </div>
+    </div>
+    <script></script>
+
+{% endblock %}

@@ -1,0 +1,135 @@
+{% extends "profile/profilebase.html.twig" %}
+
+{% block title %}Map
+{% endblock %}
+
+{% block affiche %}
+    Actuelle
+{% endblock %}
+
+{% block body %}
+    <div class="card-deck"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+    <script>
+        var actuelle;
+        function initMap() {
+            var nombremap = 0;
+            var map,
+                infoWindow;
+            var djibouti = new google.maps.LatLng(11.565149, 43.111899);
+            var myOptions = {
+                zoom: 14,
+                center: djibouti
+            }
+
+
+            var xmlhttp = new XMLHttpRequest();
+            var url = "http://localhost:8000/all";
+
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var t_enfant = JSON.parse(this.responseText);
+
+                    Object.keys(t_enfant).forEach(function (value, index, array) {
+                        drawdiv(index);
+
+
+                        drawmap(value, index);
+
+                    });
+
+                }
+            };
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+
+
+        }
+
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBT-JhwrolNtpDjOhKrT3c_4y-CT8Cjjl0",
+            authDomain: "followme-b7c73.firebaseapp.com",
+            databaseURL: "https://followme-b7c73.firebaseio.com",
+            projectId: "followme-b7c73",
+            storageBucket: "followme-b7c73.appspot.com",
+            messagingSenderId: "729085826544"
+        };
+        if (!firebase.apps.length) {
+            firebase.initializeApp(config);
+        }
+
+        var database = firebase.database();
+
+
+        function drawmap(uidenfant, div) {
+            var map;
+            var markers = [];
+
+            firebase.database().ref('users/' + uidenfant + '/position').once('value').then((snapshot) => {
+
+                let mylocation = new google.maps.LatLng(parseFloat(snapshot.val().lat), parseFloat(snapshot.val().lng));
+                map = new google.maps.Map(document.getElementById('map' + div), {
+                    zoom: 13,
+                    center: mylocation
+                });
+
+
+                firebase.database().ref('users/' + uidenfant + '/position').on('value', (snapshot) => {
+
+                    deleteMarkers();
+                    let updatelocation = new google.maps.LatLng(parseFloat(snapshot.val().lat), parseFloat(snapshot.val().lng));
+                    // let image = 'assets/imgs/blue-bike.png';
+                    map.setCenter(updatelocation);
+                    addMarker(updatelocation);
+                    setMapOnAll(map);
+                })
+            });
+            function deleteMarkers() {
+                clearMarkers();
+                markers = [];
+            }
+
+            function addMarker(location) {
+                let marker = new google.maps.Marker({position: location, map: map});
+                markers.push(marker);
+            }
+
+
+            function setMapOnAll(map) {
+                for (var i = 0; i < markers.length; i++) {
+                    markers[i].setMap(map);
+                }
+            }
+
+            function clearMarkers() {
+                setMapOnAll(null);
+            }
+        }
+
+
+        function drawdiv(nombre) {
+            var iDiv = document.createElement('div');
+
+            iDiv.className = 'card';
+            document.getElementsByClassName('card-deck')[0].appendChild(iDiv);
+
+            // Now create and append to iDiv
+            var innerDiv = document.createElement('div');
+            innerDiv.className = 'card-body';
+
+            // The variable iDiv is still good... Just append to it.
+            iDiv.appendChild(innerDiv);
+
+            // Now create and append to iDiv
+            var innerDiv2 = document.createElement('div');
+            innerDiv2.id = 'map' + nombre;
+            innerDiv2.style = "width: 100%;height:100%";
+            // The variable iDiv is still good... Just append to it.
+            innerDiv.appendChild(innerDiv2);
+        }
+    </script>
+
+
+{% endblock %}

@@ -27,7 +27,12 @@
   --text-color-hover: #4C5656;
   --box-shadow-color: rgba(220, 233, 255, 0.48);
 }
-
+.enfant{
+  --bg-color: #DCE9FA;
+  --bg-color-light: #f1f7ff;
+  --text-color-hover: #4C5656;
+  --box-shadow-color: rgba(220, 233, 255, 0.48);
+}
 .card {
   width: 220px;
   height: 321px;

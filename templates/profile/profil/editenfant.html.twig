@@ -1,0 +1,129 @@
+{% extends "profile/profilebase.html.twig" %}
+
+{% block head %}
+    {{ parent() }}
+    <style>
+        .inf-content {
+            border: 1px solid #DDDDDD;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.3);
+        }
+        .card {
+            height: 100%;
+        }
+        .card:hover {
+            transform: none;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-4">
+            <img alt="" style="width:600px;height:300px;" title="" class="img-circle rounded-circle img-thumbnail isTooltip" src="{{enfant.photoUrl}}" data-original-title=" Usuario">
+
+        </div>
+        <div class="card col-md-6" style="border-top:none">
+            <article class="card-body">
+
+                <h3>Information Generale</h3><br>
+                <div class="table-responsive">
+                    <form method="POST">
+                        <table class="table table-condensed table-responsive table-user-information">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                            Identificacion
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">
+                                        {{key}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <span class="glyphicon glyphicon-user  text-primary"></span>
+                                            Nom
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">
+                                        <input autofocus class="form-control" id="inputusername" name="username" placeholder="Nom" type="text" value="{{enfant.displayName}}">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <span class="fas fa-star"></span>
+                                            Email
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">
+                                        <input autofocus class="form-control" id="inputEmail" name="email" placeholder="Email" type="email" value="{{enfant.email}}">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <span class="glyphicon glyphicon-calendar text-primary"></span>
+                                            Numero Telephone
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">
+                                        <input autofocus class="form-control" id="inputNumber" name="number" placeholder="Tel" type="tel" value="{{enfant.phoneNumber}}">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <span class="glyphicon glyphicon-eye-open text-primary"></span>
+                                            Role
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">
+                                        Enfant
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <span class="glyphicon glyphicon-envelope text-primary"></span>
+                                            Sexe
+                                        </strong>
+
+                                    </td>
+                                    <td class="text-primary">
+                                        <select class="form-control" id="exampleFormControlSelect1" name="sexe">
+                                            <option value="male" {% if enfant.customAttributes.sexe == "male" %} selected {% endif %}>male</option>
+                                            <option value="female" {% if enfant.customAttributes.sexe == "female" %} selected {% endif %}>female</option>
+                                        </select>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+
+                                    <td>
+                                        <button class="btn btn-outline-warning btn-lg" type="reset">Effacer</button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-outline-primary btn-block" type="submit">Valider</button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </form>
+                </div>
+            </article>
+        </div>
+    </div>
+
+
+{% endblock %}

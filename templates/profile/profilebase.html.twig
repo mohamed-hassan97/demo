@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {% block head %}
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta
+            content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+            <!-- Bootstrap CSS -->
+            <style></style>
+            <link href="/bootstrap.min.css" rel="stylesheet">
+            <link href="/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+            <link href="/assets/libs/css/style.css" rel="stylesheet">
+            <link href="/fontawesome/css/all.css" rel="stylesheet">
+            <link href="/css/card.css" rel="stylesheet">
+            <link href="/assets/vendor/charts/chartist-bundle/chartist.css" rel="stylesheet">
+            <link href="/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css" rel="stylesheet">
+            <link href="/assets/vendor/charts/morris-bundle/morris.css" rel="stylesheet">
+            <link href="/assets/vendor/charts/c3charts/c3.css" rel="stylesheet">
+            <link href="/assets/vendor/fonts/flag-icon-css/flag-icon.min.css" rel="stylesheet">
+            <title>
+                {% block title %}
+                    Dashboard
+                {% endblock %}
+            </title>
+        {% endblock %}
+    </head>
+
+    <body>
+        <!-- ============================================================== -->
+        <!-- main wrapper -->
+        <!-- ============================================================== -->
+            <div class="dashboard-main-wrapper"> <!-- ============================================================== -->
+            <!-- navbar -->
+            <!-- ============================================================== -->
+                <div class="dashboard-header"> <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                    <a class="navbar-brand" href="index.html">Follow Me</a>
+                    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto navbar-right-top">
+
+                            <li class="nav-item dropdown notification" style="display:none;">
+                                <a aria-expanded="false" aria-haspopup="true" class="nav-link nav-icons" data-toggle="dropdown" href="#" id="navbarDropdownMenuLink1">
+                                    <i class="fas fa-fw fa-bell"></i>
+                                    <span class="indicator"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
+                                    <li>
+                                        <div class="notification-title">
+                                            Notification</div>
+                                        <div class="notification-list">
+                                            <div class="list-group">
+                                                <a class="list-group-item list-group-item-action active" href="#">
+                                                    <div class="notification-info">
+                                                        <div class="notification-list-user-img"><img alt="" class="user-avatar-md rounded-circle" src="/assets/images/avatar-2.jpg"></div>
+                                                        <div class="notification-list-user-block">
+                                                            <span class="notification-list-user-name">Jeremy
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Rakestraw</span>accepted your invitation to join the team.
+                                                            <div class="notification-date">2 min ago</div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a class="list-group-item list-group-item-action" href="#">
+                                                    <div class="notification-info">
+                                                        <div class="notification-list-user-img"><img alt="" class="user-avatar-md rounded-circle" src="/assets/images/avatar-3.jpg"></div>
+                                                        <div class="notification-list-user-block">
+                                                            <span class="notification-list-user-name">John Abraham
+                                                            </span>is now following you
+                                                            <div class="notification-date">2 days ago</div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a class="list-group-item list-group-item-action" href="#">
+                                                    <div class="notification-info">
+                                                        <div class="notification-list-user-img"><img alt="" class="user-avatar-md rounded-circle" src="/assets/images/avatar-4.jpg"></div>
+                                                        <div class="notification-list-user-block">
+                                                            <span class="notification-list-user-name">Monaan Pechi</span>
+                                                            is watching your main repository
+                                                            <div class="notification-date">2 min ago</div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a class="list-group-item list-group-item-action" href="#">
+                                                    <div class="notification-info">
+                                                        <div class="notification-list-user-img"><img alt="" class="user-avatar-md rounded-circle" src="/assets/images/avatar-5.jpg"></div>
+                                                        <div class="notification-list-user-block">
+                                                            <span class="notification-list-user-name">Jessica
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Caruso</span>accepted your invitation to join the team.
+                                                            <div class="notification-date">2 min ago</div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-footer">
+                                            <a href="#">View all notifications</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item dropdown nav-user">
+                                <a aria-expanded="false" aria-haspopup="true" class="nav-link nav-user-img" data-toggle="dropdown" href="#" id="navbarDropdownMenuLink2"><img alt="" class="user-avatar-md rounded-circle" src="{{parent.photoUrl}}"></a>
+                                <div aria-labelledby="navbarDropdownMenuLink2" class="dropdown-menu dropdown-menu-right nav-user-dropdown">
+                                    <div class="nav-user-info">
+                                        <h5 class="mb-0 text-white nav-user-name">{{parent.displayName}}</h5>
+                                        <span class="status"></span>
+                                        <span class="ml-2">Disponible</span>
+                                    </div>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-user mr-2"></i>Compte</a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-cog mr-2"></i>Parametre</a>
+                                    <a class="dropdown-item" href="{{path('security_logout')}}">
+                                        <i class="fas fa-power-off mr-2"></i>
+                                        Deconnexion</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end navbar -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- left sidebar -->
+            <!-- ============================================================== -->
+                <div class="nav-left-sidebar sidebar-dark"> <div class="menu-list">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                        <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNav" data-toggle="collapse" type="button">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav flex-column">
+                                <li class="nav-divider">
+                                    Menu
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="{{path('profil')}}" data-target="#submenu-1" aria-controls="submenu-1">
+                                        <i class="fa fa-fw fa-user-circle"></i>Dashboard
+
+                                    </a>
+
+                                </li>
+                                <li class="nav-item">
+                                    <a aria-controls="submenu-2" aria-expanded="false" class="nav-link" data-target="#submenu-2" href="{{path('map')}}">
+                                        <i class="fas fa-fw fa-map-marker-alt"></i>Map</a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a aria-controls="submenu-3" class="nav-link" data-target="#submenu-3" href="{{path('enfant')}}">
+                                        <i class="far fa-grin"></i>Tout les Enfant
+
+                                    </a>
+
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- end left sidebar -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- wrapper  -->
+            <!-- supprimer ici -->
+            <!-- ============================================================== -->
+                <div class="dashboard-wrapper"> <div class="dashboard-ecommerce">
+                    <div class="container-fluid dashboard-content ">
+                        <!-- ============================================================== -->
+                        <!-- pageheader  -->
+                        <!-- ============================================================== -->
+                            <div class="row"> <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div class="page-header">
+                                    <h2 class="pageheader-title">
+                                        {% block affiche %}
+                                            {%endblock%}
+                                        </h2>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ============================================================== -->
+                            <!-- end pageheader  -->
+                            <!-- ============================================================== -->
+                                <div class="ecommerce-widget"> {% block body%}
+                                    {% endblock%}
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ============================================================== -->
+                        <!-- footer -->
+                        <!-- ============================================================== -->
+                            <div class="footer" style="position:absolute;bottom:0px"> <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                        Copyright © 2019 Concept. All rights reserved.
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                        <div class="text-md-right footer-links d-none d-sm-block">
+                                            <a href="javascript: void(0);">About</a>
+                                            <a href="javascript: void(0);">Support</a>
+                                            <a href="javascript: void(0);">Contact Us</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ============================================================== -->
+                    <!-- end footer -->
+                        <!-- ============================================================== -->
+                    </div>
+                    <!-- ============================================================== -->
+                <!-- end wrapper  -->
+                    <!-- ============================================================== -->
+                </div>
+                <!-- ============================================================== -->
+                <!-- end main wrapper  -->
+                <!-- ============================================================== -->
+                <!-- Optional JavaScript -->
+                <!-- jquery 3.3.1 --><script src="/assets/vendor/jquery/jquery-3.3.1.min.js"> </script>
+                <!-- bootstap bundle js -->
+                <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+                <!-- slimscroll js -->
+                <script src="/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+                <!-- main js -->
+                <script src="/assets/libs/js/main-js.js"></script>
+                <!-- chart chartist js -->
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiEEXrZmcSs9aT2w1PcBWoV94BPynMrfo&callback=initMap"></script>
+            </body>
+        </html>
