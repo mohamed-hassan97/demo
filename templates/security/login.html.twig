@@ -2,92 +2,90 @@
 <html lang="en">
 
 <head>
-	<title>Bootstrap Example</title>
-	<meta charset="utf-8">
-	<meta content="width=device-width, initial-scale=1" name="viewport">
-	<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
-	<link href="fontawesome/css/all.css" rel="stylesheet">
-	<style>
-	.bgr{
-		height: 300px;
-		background: #00d2ff;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to top, #3a7bd5, #00d2ff);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to top, #3a7bd5, #00d2ff);
-  		border-bottom-left-radius: 50% 20%;
-  		border-bottom-right-radius: 50% 20%;
-	}
-	button[class*="social"]:hover{
-		background-color:#ffffff;
-		border:1px solid gray;
-		}
-	button[class$="fb"]{
-		background-color:#4267b2;
-		color:white;
-		
-	}
-	button[class$="google"]{
-		background-color:#ed412d;
-		color:white;
-		
-	}
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <link href="fontawesome/css/all.css" rel="stylesheet">
+    <style>
+        .bgr {
+            height: 300px;
+            background: #00d2ff; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to top, #3a7bd5, #00d2ff); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to top, #3a7bd5, #00d2ff);
+            border-bottom-left-radius: 50% 20%;
+            border-bottom-right-radius: 50% 20%;
+        }
+        button[class*="social"]:hover {
+            background-color: #ffffff;
+            border: 1px solid gray;
+        }
+        button[class$="fb"] {
+            background-color: #4267b2;
+            color: white;
 
-	</style>
+        }
+        button[class$="google"] {
+            background-color: #ed412d;
+            color: white;
+
+        }
+    </style>
 </head>
 
 <body>
-<div class="bgr">
-	<div class="container">
-		<div class="row justify-content-center align-items-center" style="height:100vh">
-			<!-- col.// -->
-			<div class="card col-md-4" style="border-top:none;">
-				<article class="card-body">
-					<a class="float-right btn btn-outline-primary" href="{{path('security_registration')}}">Inscrivez-vous</a>
-					<h4 class="card-title mb-4 mt-1">Connexion</h4>
-					<div class="text-center my-4">
-						
-							<button class="btn social-google">Google</button>
-						
-							<button class="btn social-fb">Facebook</button>
-						
-					</div>
+    <div class="bgr">
+        <div class="container">
+            <div
+                class="row justify-content-center align-items-center" style="height:100vh">
+                <!-- col.// -->
+                <div class="card col-md-4" style="border-top:none;">
+                    <article class="card-body">
+                        <a class="float-right btn btn-outline-primary" href="{{path('security_registration')}}">Inscrivez-vous</a>
+                        <h4 class="card-title mb-4 mt-1">Connexion</h4>
+                        <div class="text-center my-4">
+
+                            <button class="btn social-google">Google</button>
+
+                            <button class="btn social-fb">Facebook</button>
+
+                        </div>
 
 
-					<form action="{{path('security_login')}}" method="post">
-						
-						<div class="form-group">
-							<!--<input class="form-control" name="" placeholder="Email ou login" type="email"> -->
-							<input placeholder="Adress email" required  type="email" name="_username" class="form-control">
-						</div>
-						<!-- form-group// -->
-						<div class="form-group">
-							<input placeholder="Password" required  type="password" name="_password" class="form-control">
-						</div>
-						<div class="form-group"><input type="hidden" name="_target_path" value="{{ app.request.get('redirect_to') }}"/></div>
-						
-						<!-- form-group// -->
-						<div class="form-group">
-							<button class="btn btn-outline-primary btn-block" type="submit">
-								Connexion
-							</button>
-						</div>
+                        <form action="{{path('security_login')}}" method="post">
 
-						<!-- form-group// -->
-						<!-- .row// -->
-					</form>	
-				</article>
-			</div>
-		</div>
-		<!-- row.// -->
-	</div>
-	</div>
-	<!--container end.//-->
-	<script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script crossorigin="anonymous" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script crossorigin="anonymous" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+                            <div
+                                class="form-group">
+                                <!--<input class="form-control" name="" placeholder="Email ou login" type="email"> -->
+                                <input class="form-control" name="email" placeholder="Adress email" required type="email">
+                            </div>
+                            <!-- form-group// -->
+                            <div class="form-group">
+                                <input class="form-control" name="password" placeholder="Password" required type="password">
+                            </div>
+                            <div class="form-group"><input type="hidden" name="_target_path" value="{{ app.request.get('redirect_to') }}" /></div>
+                            <input
+                            type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                            <!-- form-group// -->
+                            <div class="form-group">
+                                <button class="btn btn-outline-primary btn-block" type="submit">
+                                    Connexion
+                                </button>
+                            </div>
+
+                            <!-- form-group// -->
+                            <!-- .row// -->
+                        </form>
+                    </article>
+                </div>
+            </div>
+            <!-- row.// -->
+        </div>
+    </div>
+    <!--container end.//-->
+    <script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
-
 
 </html>

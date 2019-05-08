@@ -1,0 +1,4 @@
+kreait_firebase:
+    projects:
+        first:
+            credentials: '%env(FIREBASE_CREDENTIALS_PATH)%'

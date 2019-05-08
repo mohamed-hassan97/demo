@@ -1,43 +1,26 @@
-security:
-    encoders:
-        App\Entity\User:
-            algorithm: bcrypt
-    
-            
-            
-    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+security:            
+    # https://symfony.com/doc/current/security.htmlwhere-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: ~ }
-        in_database: 
-            entity: 
-                class: App\Entity\User
-                property: email 
+        firebase:
+            id: App\Security\User\UserProvider
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: true
-            switch_user: ~
-            #pattern:    ^/
+
+            pattern:    ^/
             #user_checker: App\Security\UserChecker 
             # activation du UserChecker créé précédemment
-            http_basic: ~
-            provider: in_database
-
-            form_login:
-                login_path: security_login
-                check_path: security_login
-                default_target_path: profile
+            guard:
+                authenticators:
+                    - App\Security\FirebaseAuthenticator
 
             logout:
                 path: security_logout
-                target: blog
-            remember_me:
-                secret:   '%kernel.secret%'
-                lifetime: 604800 # 1 week in seconds
-                path: blog
-
+                target: home
+            
             # activate different ways to authenticate
 
             # http_basic: true
@@ -50,8 +33,7 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
          - { path: /edit, roles: ROLE_ADMIN }
-         - { path: /profile, roles: ROLE_USER }
+         #- { path: /profile, roles: ROLE_USER }
          - { path: /new, roles: ROLE_USER }
          - { path: /new, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-    access_denied_url: /
