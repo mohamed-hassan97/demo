@@ -1,0 +1,54 @@
+{% extends "base.html.twig" %}
+{% block head %}
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="/bootstrap.min.css" rel="stylesheet">
+    <link href="/fontawesome/css/all.css" rel="stylesheet">
+    <title>Connexion</title>
+{% endblock %}
+{% block body %}
+    <br>
+    <br>
+    <br>
+    <div class="container mb-3">
+
+
+        <div class="row  justify-content-center align-items-center">
+
+            <aside
+                class="card col-sm-6">
+                <!-- Default form register -->
+                <form class="card-body " method="POST">
+
+                    <p class="h4 mb-4">Connexion</p>
+
+
+                    <!-- E-mail -->
+                    <input
+                    class="form-control mb-4" id="defaultRegisterFormEmail" name="email" placeholder="E-mail" type="email">
+
+                    <!-- Password -->
+                    <input aria-describedby="defaultRegisterFormPasswordHelpBlock" class="form-control" id="defaultRegisterFormPassword" name="password" placeholder="Password" type="password">
+                    <small class="form-text text-muted mb-4" id="defaultRegisterFormPasswordHelpBlock">
+                        At least 8 characters and 1 digit
+                    </small>
+
+
+                    <!-- Sign up button -->
+                    <button class="btn btn-info my-4 btn-block" type="submit">Connnexion</button>
+
+
+                </form>
+                <!-- Default form register -->
+                <!-- card-body.// -->
+            </article>
+            <!-- card.// -->
+
+
+        </aside>
+        <!-- col.// -->
+
+        <!-- row.// -->
+    </div>
+</div><!--container end.//-->{% endblock %}

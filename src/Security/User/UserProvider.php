@@ -61,29 +61,53 @@ class UserProvider implements UserProviderInterface
         // make a call to your webservice here
 
         $auth = $this->firebase->getAuth();
-        $us =$auth->getUserByEmail($user->getEmail());
+        $us = $auth->getUserByEmail($user->getEmail());
+        
+        
         if(empty($us)){
             $us=false;
         }
-        
+         
         // pretend it returns an array on success, false if there is no user
 
         if ($us) {
-
-            $email = $us->email;
+            $util = $this->information($us->uid);
+            $email = $util['email'];
             $salt  = false;
-            
+
+
             // ...
-            $new = new Aide($us->displayName,$email, $user->getPassword());
-            $new->setUid($us->uid);
-            $new->setPhoneNumber($us->phoneNumber);
-            $new->setPhotoUrl($us->photoUrl);
-            $new->setEmail($us->email);
-            $new->setRoles($us->customAttributes['role']);
+            $new = new Aide($util['displayName'],$email, $user->getPassword());
+            $new->setUid($util['uid']);
+
+
+            if (array_key_exists('photoUrl',$util)) {
+                $new->setPhotoUrl($util['photoUrl']);
+
+            } else {
+                $new->setPhotoUrl("");
+
+            }
+            if (array_key_exists('phoneNumber',$util) ) {
+
+                $new->setPhoneNumber($util['phoneNumber']);
+            } else {
+
+                $new->setPhoneNumber();
+            }
+            $new->setEmail($util['email']);
+            $roles = array($util['compte']);
+            $new->setRoles($roles);
             return $new ;
         }
             throw new UsernameNotFoundException(
             sprintf('Username "%s" does not exist.', $user->getEmail()));
         
+    }
+    public function information($uid){
+        $reference = "users/".$uid;
+        $snapshot = $this->firebase->getDatabase()->getReference($reference)->getSnapshot();
+
+        return $snapshot->getValue();
     }
 }

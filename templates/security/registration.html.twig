@@ -1,103 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Bootstrap Example</title>
-        <meta charset="utf-8">
-        <meta content="width=device-width, initial-scale=1" name="viewport">
-        <link href="/bootstrap.min.css" rel="stylesheet">
-        <link href="/fontawesome/css/all.css" rel="stylesheet">
-        <style>
-            .bgr {
-                height: 300px;
-                background-image: linear-gradient(#ff9d2f, #ff6126);
-                border-bottom-left-radius: 50% 20%;
-                border-bottom-right-radius: 50% 20%;
-            }
+{% extends "base.html.twig" %}
+{% block head %}
 
-            button[class*="social"]:hover {
-                background-color: #ffffff;
-                border: 1px solid gray;
-            }
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="/bootstrap.min.css" rel="stylesheet">
+    <link href="/fontawesome/css/all.css" rel="stylesheet">
+    <title>Inscription</title>
+{% endblock %}
+{% block body %}
+    <br>
+    <br>
+    <br>
+    <div class="container mb-3">
 
-            button[class$="fb"] {
-                background-color: #4267b2;
-                color: white;
 
-            }
+        <div class="row  justify-content-center align-items-center">
 
-            button[class$="google"] {
-                background-color: #ed412d;
-                color: white;
+            <aside
+                class="card col-sm-6">
+                <!-- Default form register -->
+                <form class="card-body " method="POST">
 
-            }
-        </style>
-    </head>
+                    <p class="h4 mb-4">Inscription</p>
 
-    <body>
-        <div class="bgr">
-            <div class="container">
-                <div
-                    class="row justify-content-center align-items-center" style="height:100vh">
-                    <!-- col.// -->
-                    <div ; class="card col-md-4" style="border-top:none">
-                        <article class="card-body">
-                            <a class="float-right btn btn-outline-primary" href="{{path('security_login')}}">Connexion</a>
-                            <h4 class="card-title mb-4 mt-1">Inscrivez-vous</h4>
+                    <input
+                    autofocus class="form-control mb-4" id="inputusername" name="username" placeholder="username" required type="text">
 
-                            <form method="POST">
-                                <div class="form-group">
-                                    <label for="inputusername">Nom d'utilisateur</label>
-                                    <input autofocus class="form-control" id="inputusername" name="username" placeholder="username" required type="text">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputEmail">Email ou login</label>
-                                    <input autofocus class="form-control" id="inputEmail" name="email" placeholder="Email" required type="email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputNumber">Phone</label>
-                                    <input autofocus class="form-control" id="inputNumber" name="phone" placeholder="telephone" required type="tel">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPassword">Mot de passe</label>
-                                    <input class="form-control" id="inputPassword" name="password" placeholder="******" required type="password">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Sexe:</label>
-                                    <select class="form-control" id="exampleFormControlSelect1" name="sexe">
-                                        <option value="masculin">masculin</option>
-                                        <option value="feminin">feminin</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Votre Role:</label>
-                                    <select class="form-control" id="exampleFormControlSelect1" name="role">
-                                        <option value="parent">parent</option>
-                                        <option value="enfant">enfant</option>
-                                    </select>
-                                </div>
-                                <div class="form-group text-center ">
-                                    <button class="btn btn-outline-primary btn-block" type="submit">
-                                        Inscription
-                                    </button>
-                                </div>
-                            </div>
+                    <!-- E-mail -->
+                    <input
+                    class="form-control mb-4" id="defaultRegisterFormEmail" name="email" placeholder="E-mail" type="email">
 
-                        </form>
-                        <!-- form-group// -->
-                        <!-- .row// -->
+                    <!-- Password -->
+                    <input aria-describedby="defaultRegisterFormPasswordHelpBlock" class="form-control" id="defaultRegisterFormPassword" name="password" placeholder="Password" type="password">
+                    <small class="form-text text-muted mb-4" id="defaultRegisterFormPasswordHelpBlock">
+                        At least 8 characters and 1 digit
+                    </small>
 
-                    </article>
-                </div>
-            </div>
-            <!-- row.// -->
-        </div>
+                    <!-- Phone number -->
+                    <input aria-describedby="defaultRegisterFormPhoneHelpBlock" class="form-control" id="defaultRegisterPhonePassword" name="phone" placeholder="Phone number" type="text">
+
+                    <div class="form-row my-4">
+                        <div
+                            class="col">
+                            <!-- First name -->
+                            <select class="form-control" id="exampleFormControlSelect1" name="sexe">
+                                <option value="masculin">masculin</option>
+                                <option value="feminin">feminin</option>
+                            </select>
+                        </div>
+                        <div
+                            class="col">
+                            <!-- Last name -->
+                            <select class="form-control" id="exampleFormControlSelect1" name="role">
+                                <option value="parent">parent</option>
+                                <option value="enfant">enfant</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <input
+                    name="image" type="file">
+
+                    <!-- Sign up button -->
+                    <button class="btn btn-info my-4 btn-block" type="submit">Inscription</button>
+
+
+                </form>
+                <!-- Default form register -->
+                <!-- card-body.// -->
+            </article>
+            <!-- card.// -->
+
+
+        </aside>
+        <!-- col.// -->
+
+        <!-- row.// -->
     </div>
-    <!--container end.//-->
-    <!-- jquery 3.3.1 -->
-    <script src="/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <!-- bootstap bundle js -->
-    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <!-- slimscroll js -->
-    <script src="/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-
-</body></html>
+</div><!--container end.//-->{% endblock %}

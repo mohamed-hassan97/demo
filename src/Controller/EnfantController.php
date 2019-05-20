@@ -81,16 +81,18 @@ class EnfantController extends AbstractController
         $database = new Database($this->firebase);
         $user = $this->getUser();
         $info_enfant = $database->infochild($id);
-        if($info_enfant){
+        
+        
         /* recuperer les informations du formulaire email,mot de passe etc.. */
        $nom = $request->request->get('username');
        $email = $request->request->get('email');
+       $password = $request->request->get('password');
        $number = $request->request->get('number');
        $sexe = $request->request->get('sexe');
 
 
        
-       if($nom != null || $email != null || $number != null || $sexe != null ){
+       if($nom != null || $password != null || $email != null || $number != null || $sexe != null ){
 
            /* avoir les fonctions d'authentification */
            $auth = $this->firebase->getAuth();
@@ -119,10 +121,8 @@ class EnfantController extends AbstractController
            // redirection vers la page de LOGIN
            return $this->redirectToRoute('enfant_show',["id"=>$id]);
         }
-        else{
-            return $this->json("c'est pas votre enfant");
-        }
-       }
+        
+       
 
         
         return $this->render('profile/profil/editenfant.html.twig',['parent'=>$user,"key"=>$info_enfant['key'],"enfant"=>$info_enfant['value'] ]);

@@ -74,15 +74,34 @@ use TargetPathTrait;
         
         $user=null;
         try {
-            $user = $auth->verifyPassword($email, $password);
-            $new = new Aide($user->displayName,$user->email,$password);
+            $us = $auth->verifyPassword($email, $password);
+            $user = $this->information($us->uid);
+
+            $new = new Aide($user['displayName'],$user['email'],$password);
+            $new->setUid($user['uid']);
+
+            if (array_key_exists('photoUrl',$user)   ) {
+                $new->setPhotoUrl($user['photoUrl']);
+
+            } else {
+                $new->setPhotoUrl("");
+
+            }
+
+            if (array_key_exists('phoneNumber',$user)  ) {
+
+                $new->setPhoneNumber($user['phoneNumber']);
+            } else {
+
+                $new->setPhoneNumber();
+            }
             
-            $new->setUid($user->uid);
-            $new->setPhoneNumber($user->phoneNumber);
-            $new->setPhotoUrl($user->photoUrl);
+            $new->setPhotoUrl();
+            $roles = array($user['compte']);
 
 
-            $new->setRoles($user->customAttributes['role']);
+            $new->setRoles($roles);
+
 
             $properties = [
                 'metadata' => [
@@ -91,7 +110,7 @@ use TargetPathTrait;
                 
             ];
             // the last time user access 
-            $auth->updateUser($user->uid,$properties);
+            $auth->updateUser($user['uid'],$properties);
             
         
             return $new;
@@ -147,6 +166,12 @@ use TargetPathTrait;
         return $this->urlGenerator->generate('security_login');
     }
 
+    public function information($uid){
+        $reference = "users/".$uid;
+        $snapshot = $this->firebase->getDatabase()->getReference($reference)->getSnapshot();
+
+        return $snapshot->getValue();
+    }
 
     
 }

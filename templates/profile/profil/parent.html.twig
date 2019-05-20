@@ -1,0 +1,116 @@
+{% extends "profile/profilebase.html.twig" %}
+
+{% block head %}
+    {{ parent() }}
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css"/>
+    <style>
+        .inf-content {
+            border: 1px solid #DDDDDD;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+{% endblock %}
+{% block affiche%}Profile du Parent
+{% endblock %}
+{% block body %}
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-4">
+            <img alt="" style="width:600px;height:300px;" title="" class="img-circle rounded-circle img-thumbnail isTooltip" src="{{parent.photoUrl}}" data-original-title=" Usuario">
+
+        </div>
+        <div class="col-md-6">
+            <h3>Information Generale</h3><br>
+            <div class="table-responsive">
+                <table class="table table-condensed table-responsive table-user-information">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>
+                                    <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                    Identificacion
+                                </strong>
+                            </td>
+                            <td class="text-primary" id="uid">
+                                {{parent.uid}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    <span class="glyphicon glyphicon-user  text-primary"></span>
+                                    Nom
+                                </strong>
+                            </td>
+                            <td class="text-primary">
+                                {{parent.displayName}}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <strong>
+                                    <span class=""></span>
+                                    Email
+                                </strong>
+                            </td>
+                            <td class="text-primary">
+                                {{parent.email}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    <span class=""></span>
+                                    Numero de telephone
+                                </strong>
+                            </td>
+                            <td class="text-primary">
+                                {{parent.phoneNumber}}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <strong>
+                                    <span class="glyphicon glyphicon-eye-open text-primary"></span>
+                                    Role
+                                </strong>
+                            </td>
+                            <td class="text-primary">
+                                parent
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>
+                                    <span class="glyphicon glyphicon-envelope text-primary"></span>
+                                    Sexe
+                                </strong>
+                            </td>
+                            <td class="text-primary">
+                                Masculin
+                            </td>
+                        </tr>
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>
+                                <a href="{{ path('parent_edit') }}" class="btn btn-outline-primary btn-block">Editer</a>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

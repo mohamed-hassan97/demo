@@ -18,7 +18,8 @@
         }
     </style>
 {% endblock %}
-
+{% block affiche%}Edition Profil de l'Enfant
+{% endblock %}
 {% block body %}
 
     <div class="row justify-content-center align-items-center">
@@ -71,6 +72,17 @@
                                 <tr>
                                     <td>
                                         <strong>
+                                            <span class="glyphicon glyphicon-user  text-primary"></span>
+                                            Mot de passe
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">
+                                        <input autofocus class="form-control" id="inputusername" name="password" placeholder="Mot de passe" type="text" value="{{enfant.password}}">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>
                                             <span class="glyphicon glyphicon-calendar text-primary"></span>
                                             Numero Telephone
                                         </strong>
@@ -100,8 +112,8 @@
                                     </td>
                                     <td class="text-primary">
                                         <select class="form-control" id="exampleFormControlSelect1" name="sexe">
-                                            <option value="male" {% if enfant.customAttributes.sexe == "male" %} selected {% endif %}>male</option>
-                                            <option value="female" {% if enfant.customAttributes.sexe == "female" %} selected {% endif %}>female</option>
+                                            <option value="masculin" {% if enfant.sexe == "masculin" %} selected {% endif %}>masculin</option>
+                                            <option value="feminin" {% if enfant.sexe == "feminin" %} selected {% endif %}>feminin</option>
                                         </select>
                                     </td>
                                 </tr>

@@ -17,7 +17,6 @@ use Kreait\Firebase; // Firebase
 /**
   * Require ROLE_ADMIN pour *tout* acceder a ce controller.
   *
-  * @Security("is_granted('ROLE_PARENT') or is_granted('ROLE_ADMIN')")
  */
 class ProfileController extends AbstractController
 {
@@ -43,7 +42,7 @@ class ProfileController extends AbstractController
         
         $all_uid_enfant = $this->allchildof($uid);
 
-
+        
 
         //initinaliser tableau vide
         $allinfo =array();
@@ -82,6 +81,8 @@ class ProfileController extends AbstractController
     public function profil(){
 
         $user = $this->getUser();
+
+        
 
         
         return $this->render('profile/profile/principal.html.twig',['parent'=>$user]);

@@ -43,12 +43,14 @@ class SecurityController extends AbstractController
         $username  = $request->request->get('username');
         $age = $request->request->get('age');
         $phone = $request->request->get('phone');
+        $image = $request->request->get('image');
 
         
         if($email != null && $password != null){
 
             /* avoir les fonctions d'authentification */
             $auth = $this->firebase->getAuth();
+            $_SESSION["porp"]=$image;
             
             
             $r1=random_int(0,9);
@@ -93,7 +95,7 @@ class SecurityController extends AbstractController
                 default:
                     break;
             }
-            $_SESSION["porp"]=$properties;
+
 
             $this->ajoutdatabase($uid,$createdUser,$properties);
 

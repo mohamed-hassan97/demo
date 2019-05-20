@@ -33,6 +33,8 @@ class Aide implements UserInterface,\Serializable,EquatableInterface
   
       
       private $password;
+
+      private $sexe;
   
       
       private $displayName;
@@ -147,7 +149,7 @@ class Aide implements UserInterface,\Serializable,EquatableInterface
           return $this->photoUrl;
       }
   
-      public function setPhotoUrl(string $photoUrl): self
+      public function setPhotoUrl(string $photoUrl=""): self
       {
           $this->photoUrl = $photoUrl;
   
@@ -159,13 +161,23 @@ class Aide implements UserInterface,\Serializable,EquatableInterface
           return $this->disabled;
       }
   
-      public function setDisabled(bool $disabled): self
+      public function setDisabled(bool $disabled=null): self
       {
           $this->disabled = $disabled;
   
           return $this;
       }
+      public function getSexe(): ?string
+      {
+          return $this->sexe;
+      }
   
+      public function setSexe(?string $sexe): self
+      {
+          $this->sexe = $sexe;
+  
+          return $this;
+      }
       public function getUid(): ?string
       {
           return $this->uid;

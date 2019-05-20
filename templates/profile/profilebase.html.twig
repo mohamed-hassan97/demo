@@ -34,6 +34,7 @@
             <!-- navbar -->
             <!-- ============================================================== -->
                 <div class="dashboard-header"> <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                    <img class="rounded-circle " src="/images/logo.png" style="width:68px;">
                     <a class="navbar-brand" href="index.html">Follow Me</a>
                     <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
                         <span class="navbar-toggler-icon"></span>
@@ -41,80 +42,15 @@
                     <div class="collapse navbar-collapse " id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto navbar-right-top">
 
-                            <li class="nav-item dropdown notification" style="display:none;">
-                                <a aria-expanded="false" aria-haspopup="true" class="nav-link nav-icons" data-toggle="dropdown" href="#" id="navbarDropdownMenuLink1">
-                                    <i class="fas fa-fw fa-bell"></i>
-                                    <span class="indicator"></span>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
-                                    <li>
-                                        <div class="notification-title">
-                                            Notification</div>
-                                        <div class="notification-list">
-                                            <div class="list-group">
-                                                <a class="list-group-item list-group-item-action active" href="#">
-                                                    <div class="notification-info">
-                                                        <div class="notification-list-user-img"><img alt="" class="user-avatar-md rounded-circle" src="/assets/images/avatar-2.jpg"></div>
-                                                        <div class="notification-list-user-block">
-                                                            <span class="notification-list-user-name">Jeremy
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Rakestraw</span>accepted your invitation to join the team.
-                                                            <div class="notification-date">2 min ago</div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a class="list-group-item list-group-item-action" href="#">
-                                                    <div class="notification-info">
-                                                        <div class="notification-list-user-img"><img alt="" class="user-avatar-md rounded-circle" src="/assets/images/avatar-3.jpg"></div>
-                                                        <div class="notification-list-user-block">
-                                                            <span class="notification-list-user-name">John Abraham
-                                                            </span>is now following you
-                                                            <div class="notification-date">2 days ago</div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a class="list-group-item list-group-item-action" href="#">
-                                                    <div class="notification-info">
-                                                        <div class="notification-list-user-img"><img alt="" class="user-avatar-md rounded-circle" src="/assets/images/avatar-4.jpg"></div>
-                                                        <div class="notification-list-user-block">
-                                                            <span class="notification-list-user-name">Monaan Pechi</span>
-                                                            is watching your main repository
-                                                            <div class="notification-date">2 min ago</div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <a class="list-group-item list-group-item-action" href="#">
-                                                    <div class="notification-info">
-                                                        <div class="notification-list-user-img"><img alt="" class="user-avatar-md rounded-circle" src="/assets/images/avatar-5.jpg"></div>
-                                                        <div class="notification-list-user-block">
-                                                            <span class="notification-list-user-name">Jessica
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Caruso</span>accepted your invitation to join the team.
-                                                            <div class="notification-date">2 min ago</div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-footer">
-                                            <a href="#">View all notifications</a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
 
                             <li class="nav-item dropdown nav-user">
                                 <a aria-expanded="false" aria-haspopup="true" class="nav-link nav-user-img" data-toggle="dropdown" href="#" id="navbarDropdownMenuLink2"><img alt="" class="user-avatar-md rounded-circle" src="{{parent.photoUrl}}"></a>
                                 <div aria-labelledby="navbarDropdownMenuLink2" class="dropdown-menu dropdown-menu-right nav-user-dropdown">
                                     <div class="nav-user-info">
                                         <h5 class="mb-0 text-white nav-user-name">{{parent.displayName}}</h5>
-                                        <span class="status"></span>
-                                        <span class="ml-2">Disponible</span>
                                     </div>
                                     <a class="dropdown-item" href="#">
                                         <i class="fas fa-user mr-2"></i>Compte</a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fas fa-cog mr-2"></i>Parametre</a>
                                     <a class="dropdown-item" href="{{path('security_logout')}}">
                                         <i class="fas fa-power-off mr-2"></i>
                                         Deconnexion</a>
@@ -153,10 +89,22 @@
                                         <i class="fas fa-fw fa-map-marker-alt"></i>Map</a>
                                 </li>
                                 <li class="nav-item ">
-                                    <a aria-controls="submenu-3" class="nav-link" data-target="#submenu-3" href="{{path('enfant')}}">
+
+                                    <a class="nav-link" href="{{path('enfant')}}" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3">
                                         <i class="far fa-grin"></i>Tout les Enfant
 
                                     </a>
+                                    <div class="collapse submenu" id="submenu-3" style="">
+                                        <ul class="nav flex-column">
+
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="">Kadra</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="">Faycal</a>
+                                            </li>
+                                        </ul>
+                                    </div>
 
                                 </li>
 
@@ -205,13 +153,7 @@
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                                         Copyright © 2019 Concept. All rights reserved.
                                     </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                        <div class="text-md-right footer-links d-none d-sm-block">
-                                            <a href="javascript: void(0);">About</a>
-                                            <a href="javascript: void(0);">Support</a>
-                                            <a href="javascript: void(0);">Contact Us</a>
-                                        </div>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
